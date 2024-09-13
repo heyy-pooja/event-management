@@ -4,6 +4,7 @@ const cors = require("cors");
 const path = require("path");
 const cookieParser = require("cookie-parser");
 require("dotenv").config();
+// const path = require("path")
 
 const app = express();
 app.use(express.json());
@@ -24,6 +25,7 @@ app.use("/api/event", require("./routes/seatBook.routes"));
 // Error handling middleware
 app.use("*", (req, res) => {
     res.status(404).json({ message: "Resource Not Found" });
+    // res.sendFile(path.join(__dirname, "dist", "index.html"))
 });
 
 app.use((err, req, res, next) => {
